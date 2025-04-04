@@ -38,3 +38,11 @@ router.post('/:user/trash', async (req, res) => {
     const result = await trashUser(user);
     handleWeavyResponse(req, res, result);
 });
+
+
+router.get("/", async (req, res) => {
+  const result = await listUsers(req.query);
+  handleWeavyResponse(req, res, result);
+});
+
+export default router;

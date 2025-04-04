@@ -10,9 +10,9 @@ if (!weavyUrl || !weavyApiKey) {
 }
 
 
-const callWeavyApi = async (method, path, data = null, params = null, authorizationToken = null) => {
+const callWeavyApi = async (method, path, data = null, params = null) => {
     const url = `${weavyUrl}${path}`;
-    const tokenToUse = authorizationToken || `Bearer ${weavyApiKey}`; 
+    const tokenToUse = `Bearer ${weavyApiKey}`; 
 
     console.log(`Calling Weavy API: ${method} ${url}`); 
 
@@ -85,8 +85,8 @@ export const trashUser = async (userId) => {
 };
 
 // GET /api/users
-export const listUsers = async (queryParams, authorizationToken = null) => {
-    return callWeavyApi('GET', '/api/users', null, queryParams, authorizationToken);
+export const listUsers = async (queryParams) => {
+    return callWeavyApi('GET', '/api/users', null, queryParams);
 };
 
 
